@@ -29,7 +29,7 @@ export const Form = () => {
   return (
     <S.Container>
       <form onSubmit={handleSubmit((data) => console.log(data))}>
-        <Input
+        {/* <Input
           {...register("name")}
           label="Nome"
           maxWidth={400}
@@ -42,7 +42,26 @@ export const Form = () => {
           label="E-mail"
           maxWidth={400}
           helpText={errors.email?.message}
-        />
+        /> */}
+
+        <Input.Root>
+          <label htmlFor="Nome">Nome</label>
+          <Input.InputGroup>
+            <Input.Icon>$</Input.Icon>
+            <Input.InputElement id="Nome" type="text" />
+            {/* <Input.Icon>$</Input.Icon> */}
+          </Input.InputGroup>
+          <Input.InputHelpText text="" />
+        </Input.Root>
+
+        <Input.Root>
+          <label htmlFor="email">E-mail</label>
+          <Input.InputGroup>
+            <Input.Icon>$</Input.Icon>
+            <Input.InputElement id="email" type="text" />
+            {/* <Input.Icon>$</Input.Icon> */}
+          </Input.InputGroup>
+        </Input.Root>
         <Button type="submit">Enviar</Button>
       </form>
 
