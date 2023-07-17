@@ -1,7 +1,7 @@
 import * as S from "./styles";
 
 type InputHelpTextProps = {
-  text: string;
+  text?: string;
 };
 
 export const InputHelpText = ({ text }: InputHelpTextProps) => {

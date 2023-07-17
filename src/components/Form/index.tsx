@@ -29,39 +29,30 @@ export const Form = () => {
   return (
     <S.Container>
       <form onSubmit={handleSubmit((data) => console.log(data))}>
-        {/* <Input
-          {...register("name")}
-          label="Nome"
-          maxWidth={400}
-          helpText={errors.name?.message}
-          value={rg}
-          onChange={({ target }) => setRg(phoneMask(target.value))}
-        />
-        <Input
-          {...register("email")}
-          label="E-mail"
-          maxWidth={400}
-          helpText={errors.email?.message}
-        /> */}
-
         <Input.Root>
-          <label htmlFor="Nome">Nome</label>
+          <label htmlFor="name">Nome</label>
           <Input.InputGroup>
             <Input.Icon>$</Input.Icon>
-            <Input.InputElement id="Nome" type="text" />
-            {/* <Input.Icon>$</Input.Icon> */}
+            <Input.InputElement
+              {...register("name")}
+              id="name"
+              type="text"
+              value={rg}
+              onChange={({ target }) => setRg(cnpjMask(target.value))}
+            />
           </Input.InputGroup>
-          <Input.InputHelpText text="" />
+          <Input.InputHelpText text={errors.name?.message} />
         </Input.Root>
 
         <Input.Root>
           <label htmlFor="email">E-mail</label>
           <Input.InputGroup>
             <Input.Icon>$</Input.Icon>
-            <Input.InputElement id="email" type="text" />
-            {/* <Input.Icon>$</Input.Icon> */}
+            <Input.InputElement {...register("email")} id="email" type="text" />
           </Input.InputGroup>
+          <Input.InputHelpText text={errors.email?.message} />
         </Input.Root>
+
         <Button type="submit">Enviar</Button>
       </form>
 
